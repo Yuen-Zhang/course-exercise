@@ -15,20 +15,18 @@ fetch('http://localhost:8081/api/courses')
 
       // Add click event listener to the course link
       const courseLink = row.querySelector('a');
+      console.log(courseLink);
       courseLink.addEventListener('click', event => {
         event.preventDefault();
 
         // Get the course ID from the data attribute
         const courseId = courseLink.dataset.courseId;
 
-        // Find the selected course
-        const selectedCourse = data.find(course => course.id === courseId);
+        
+        localStorage.setItem('selectedID', JSON.stringify(courseId));
 
         
-        localStorage.setItem('selectedCourse', JSON.stringify(selectedCourse));
-
-        
-        window.location.href = 'details.html';
+         window.location.href = 'details.html';
       });
     });
   });
