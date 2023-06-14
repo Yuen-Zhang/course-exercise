@@ -13,22 +13,6 @@ fetch('http://localhost:8081/api/courses')
       `;
       table.appendChild(row);
 
-      // Add click event listener to the course link
-      const courseLink = row.querySelector('a');
-      courseLink.addEventListener('click', event => {
-        event.preventDefault();
-
-        // Get the course ID from the data attribute
-        const courseId = courseLink.dataset.courseId;
-
-        // Find the selected course
-        const selectedCourse = data.find(course => course.id === courseId);
-
-        
-        localStorage.setItem('selectedCourse', JSON.stringify(selectedCourse));
-
-        
-        window.location.href = 'details.html';
+      
       });
     });
-  });
